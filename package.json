@@ -1,0 +1,52 @@
+{
+  "name": "nexa-link",
+  "version": "1.0.1",
+  "description": "NexaLink - Hệ thống tự động hóa tuyển dụng và kết nối ứng viên LinkedIn",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huuthienkk/StudioLink.git"
+  },
+  "main": "dist/src/main/index.js",
+  "scripts": {
+    "dev": "node scripts/launch.js linkedin",
+    "dev:web": "vite",
+    "dev:main": "tsc -p tsconfig.json -w",
+    "start": "electron .",
+    "build": "tsc -p tsconfig.json && vite build",
+    "build:bump": "npm version patch --no-git-tag-version && npm run build",
+    "release": "npm version patch --no-git-tag-version && npm run build && electron-builder --publish always",
+    "package": "npm run build && electron-builder",
+    "test": "tsc && node --test dist/tests/unit/*.test.js dist/tests/e2e/*.e2e.js",
+    "test:unit": "tsc && node --test dist/tests/unit/*.test.js",
+    "test:e2e": "tsc && node --test dist/tests/e2e/*.e2e.js"
+  },
+  "keywords": [
+    "electron",
+    "automation",
+    "linkedin",
+    "playwright",
+    "recruitment"
+  ],
+  "author": "NexaLink Team",
+  "license": "PROPRIETARY",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "electron-updater": "^6.8.9",
+    "playwright-core": "^1.50.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sql.js": "^1.14.2",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/sql.js": "^1.4.11",
+    "concurrently": "^9.1.2",
+    "electron": "^34.2.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0"
+  }
+}

@@ -1,0 +1,31 @@
+appId: com.nexalink.app
+productName: NexaLink
+directories:
+  output: release
+  buildResources: resources
+
+publish:
+  provider: github
+  owner: huuthienkk
+  repo: StudioLink
+  releaseType: release
+
+files:
+  - dist/**/*
+  - node_modules/**/*
+  - package.json
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  shortcutName: NexaLink
+  differentialPackage: true
+
